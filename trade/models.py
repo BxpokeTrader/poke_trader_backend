@@ -1,6 +1,6 @@
 from django.forms import forms, ModelForm
 from djongo import models
-from django.db.models import TextField
+from djongo.models import TextField
 import json
 
 
@@ -31,15 +31,16 @@ class Trade(models.Model):
     def calculate_diff(self):
 
         experience_amount_right = 0
-
-        for item in self.right_side:
-            item = json.loads(item)
-            experience_amount_right += int(item['base_experience'])
+        items = json.loads(self.right_side.replace('\'', '\"'))
+        for item in items:
+            print(item)
+            experience_amount_right += int(item['base_expecience'])
 
         experience_amount_left = 0
 
-        for item in self.left_side:
-            item = json.loads(item)
-            experience_amount_left += int(item['base_experience'])
+        items = json.loads(self.left_side.replace('\'', '\"'))
+        for item in items:
+            experience_amount_left += int(item['base_expecience'])
 
         return abs(experience_amount_left - experience_amount_right)
+

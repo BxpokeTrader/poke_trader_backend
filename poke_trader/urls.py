@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+from trade.views import TradeViewSet
+
+router = routers.DefaultRouter()
+router.register('trade', TradeViewSet, basename='verify_trade')
+
+urlpatterns = router.urls

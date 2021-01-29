@@ -1,4 +1,3 @@
-from django.forms import forms, ModelForm
 from djongo import models
 from djongo.models import TextField
 import json
@@ -21,9 +20,6 @@ class Trade(models.Model):
 
     def is_fair(self):
         # TODO: improve the logic to define what is fair
-
-        print('nome: ' + str(self.left_side) + str(self.right_side))
-        print('nome2: ' + str(self.left_side) + str(self.right_side))
         if self.calculate_diff() < 10:
             return 'This trade is fair!'
         return 'This trade is unfair!'
@@ -33,7 +29,6 @@ class Trade(models.Model):
         experience_amount_right = 0
         items = json.loads(self.right_side.replace('\'', '\"'))
         for item in items:
-            print(item)
             experience_amount_right += int(item['base_expecience'])
 
         experience_amount_left = 0
@@ -43,4 +38,11 @@ class Trade(models.Model):
             experience_amount_left += int(item['base_expecience'])
 
         return abs(experience_amount_left - experience_amount_right)
+
+    def toJson(self):
+        data = dict()
+        data['right_side'] = json.loads(self.right_side.replace('\'', '\"'))
+        data['left_side'] = json.loads(self.left_side.replace('\'', '\"'))
+        data['result'] = self.result
+        return data
 

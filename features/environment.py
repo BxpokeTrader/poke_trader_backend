@@ -29,6 +29,10 @@ def after_scenario(context, scenario):
     context.hooks.invoke(br_app.AFTER_SCENARIO, context, scenario)
 
 
+def before_step(context, step):
+    context.hooks.invoke(br_app.BEFORE_STEP, context, step)
+
+
 def after_step(context, step):
     context.hooks.invoke(br_app.AFTER_STEP, context, step)
 

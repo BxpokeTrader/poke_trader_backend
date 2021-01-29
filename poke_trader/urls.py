@@ -21,5 +21,7 @@ from trade.views import TradeViewSet
 
 router = routers.DefaultRouter()
 router.register('trade', TradeViewSet, basename='verify_trade')
+router.register('trade', TradeViewSet, basename='save')
+router.register('trade', TradeViewSet, basename='list')
 
 urlpatterns = router.urls

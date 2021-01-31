@@ -1,9 +1,13 @@
 .PHONY: all test clean
 
-clean:
-	fuser -k 8000/tcp
+compose_build:
+	docker-compose build
 
 test:
-	python manage.py runserver &
+	python manage.py test
 	python manage.py behave
-	fuser -k 8000/tcp
+
+docker-test: compose_build
+	docker-compose up -d
+	docker-compose exec web python manage.py test
+	docker-compose exec web python manage.py behave

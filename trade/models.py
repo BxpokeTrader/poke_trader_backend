@@ -29,13 +29,17 @@ class Trade(models.Model):
         return 'This trade is unfair!'
 
     def get_right_side(self):
-        return json.loads(self.right_side.replace('\'', '\"'))
+        if isinstance(self.right_side, str):
+            return json.loads(self.right_side.replace('\'', '\"'))
+        return self.right_side
 
     def set_right_side(self, right_side):
         self.right_side = str(right_side)
 
     def get_left_side(self):
-        return json.loads(self.left_side.replace('\'', '\"'))
+        if isinstance(self.left_side, str):
+            return json.loads(self.left_side.replace('\'', '\"'))
+        return self.left_side
 
     def set_left_side(self, left_side):
         self.left_side = left_side

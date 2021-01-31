@@ -1,5 +1,4 @@
-from djongo import models
-from djongo.models import TextField
+from django.db import models
 import json
 
 from trade.fairness import Fairness
@@ -16,10 +15,9 @@ class Pokemon:
 
 
 class Trade(models.Model):
-    _id = models.ObjectIdField()
     right_side = models.TextField()
     left_side = models.TextField()
-    result = TextField()
+    result = models.TextField()
 
     def is_fair(self):
         """

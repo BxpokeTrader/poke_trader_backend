@@ -26,7 +26,7 @@ SECRET_KEY = '7!5k(ay88#*0oz-rop#rcn1%8@@-&+uck8hdu2%^d%bmba^%f#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'mongodb']
 
 
 # Application definition
@@ -84,12 +84,19 @@ WSGI_APPLICATION = 'poke_trader.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
+# TODO: config env variables
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'poke-trader',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
+
 
 
 # Password validation
@@ -134,3 +141,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
 )
+

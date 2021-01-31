@@ -2,6 +2,8 @@ from djongo import models
 from djongo.models import TextField
 import json
 
+from trade.fairness import Fairness
+
 
 class Pokemon:
     def __init__(self, name, base_experience, image):
@@ -20,23 +22,13 @@ class Trade(models.Model):
     result = TextField()
 
     def is_fair(self):
-        # TODO: improve the logic to define what is fair
-        if self.calculate_diff() < 10:
+        """
+        Verify if this Trade is fair. It returns a string message about the fairness
+        """
+        fairness = Fairness(experience_weight=1)
+        if fairness.is_fair(self):
             return 'This trade is fair!'
         return 'This trade is unfair!'
-
-    def calculate_diff(self):
-
-        experience_amount_right = 0
-        for item in self.right_side:
-            experience_amount_right += int(item['base_experience'])
-
-        experience_amount_left = 0
-
-        for item in self.left_side:
-            experience_amount_left += int(item['base_experience'])
-
-        return abs(experience_amount_left - experience_amount_right)
 
     def get_right_side(self):
         return json.loads(self.right_side.replace('\'', '\"'))

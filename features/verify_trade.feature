@@ -7,10 +7,10 @@ Feature: Verify trade
     And a request json payload
       """
         {"right_side": [
-          {"name": "Charmander", "base_expecience": 100
+          {"name": "Charmander", "base_experience": 100, "image": "url"
         }
           ], "left_side": [
-              {"name": "Charmander", "base_expecience": 100
+              {"name": "Charmander", "base_experience": 100, "image": "url"
               }
           ], "result": ""
         }
@@ -23,13 +23,15 @@ Feature: Verify trade
             "right_side": [
                 {
                     "name": "Charmander",
-                    "base_expecience": 100
+                    "base_experience": 100,
+                    "image": "url"
                 }
             ],
             "left_side": [
                 {
                     "name": "Charmander",
-                    "base_expecience": 100
+                    "base_experience": 100,
+                    "image": "url"
                 }
             ],
             "result": "This trade is fair!"
@@ -44,17 +46,20 @@ Feature: Verify trade
            "right_side":[
               {
                  "name":"Charmander",
-                 "base_expecience":100
+                 "base_experience":100,
+                 "image": "url"
               },
               {
                  "name":"Charmander",
-                 "base_expecience":100
+                 "base_experience":100,
+                 "image": "url"
               }
            ],
            "left_side":[
               {
                  "name":"Charmander",
-                 "base_expecience":100
+                 "base_experience":100,
+                 "image": "url"
               }
            ],
            "result":""
@@ -68,17 +73,20 @@ Feature: Verify trade
            "right_side":[
               {
                  "name":"teste1",
-                 "base_expecience":200
+                 "base_experience":200,
+                 "image": "url"
               }
            ],
            "left_side":[
               {
                  "name":"teste1",
-                 "base_expecience":200
+                 "base_experience":200,
+                 "image": "url"
               },
               {
                  "name":"teste1",
-                 "base_expecience":200
+                 "base_experience":200,
+                 "image": "url"
               }
            ],
            "result":""

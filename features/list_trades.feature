@@ -1,4 +1,6 @@
 Feature: List Historical Trades
+  This Feature verify the Historical Trades Feature, which lists all Trades that were accepted.
+
   Scenario: List without previous trades
     Given a request url http://localhost:8000/trade/
     When the request sends GET

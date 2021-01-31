@@ -26,7 +26,7 @@ SECRET_KEY = '7!5k(ay88#*0oz-rop#rcn1%8@@-&+uck8hdu2%^d%bmba^%f#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'trade',
     'rest_framework_mongoengine',
-    # CORS
     'corsheaders',
     'behave_django'
 ]
@@ -88,7 +87,7 @@ WSGI_APPLICATION = 'poke_trader.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'poke-trade',
+        'NAME': 'poke-trader',
     }
 }
 
@@ -131,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8081',
+    'http://localhost:3000',
 )

@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'poke_trader.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db92hfeoaoquls',
-        'USER': 'ueqaszmbtznzwi',
-        'PASSWORD': '919a483538798bbd49b5757d180cb171a2cd0ddf7925ac749b0dddd2a8de2320',
-        'HOST': 'ec2-50-16-108-254.compute-1.amazonaws.com',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
         'PORT': 5432,
     }
 }

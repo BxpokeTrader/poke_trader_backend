@@ -12,6 +12,17 @@ def create_default_trade():
     return trade
 
 
+def create_unfair_trade():
+    pokemon1 = {'name': 'pikachu', 'base_experience': 112, 'image': 'url'}
+    pokemon2 = {'name': 'charmander', 'base_experience': 62, 'image': 'url'}
+    trade = Trade()
+    trade.right_side = [pokemon1]
+    trade.left_side = [pokemon2]
+    trade.result = trade.is_fair()
+
+    return trade
+
+
 def mocked_requests_get(*args, **kwargs):
     class MockResponse:
         def __init__(self, json_data, status_code):

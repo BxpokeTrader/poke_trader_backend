@@ -13,6 +13,11 @@ from trade.serializers import TradeSerializer
 class TradeViewSet(ViewSet):
     @action(detail=False, methods=['POST'])
     def verify(self, request):
+        """
+        Verify if a specific Trade is fair or not.
+        It receive a POST request containing a Trade data in JSON format
+        and return the same Trade with the result (is fair or not).
+        """
         trade_serializer = TradeSerializer(data=request.data)
         if trade_serializer.is_valid():
             trade = Trade(right_side=trade_serializer.validated_data['right_side'],
@@ -25,6 +30,10 @@ class TradeViewSet(ViewSet):
 
     @action(detail=False, methods=['POST'])
     def save(self, request):
+        """
+        Save a specific trade in database. It is done if the user accept the trade.
+        It is used to populate the database with all trades that was made with PokeTrader.
+        """
         trade_serializer = TradeSerializer(data=request.data)
         if trade_serializer.is_valid():
             trade = Trade(right_side=trade_serializer.validated_data['right_side'],
@@ -36,6 +45,9 @@ class TradeViewSet(ViewSet):
         return Response(None, status=status.HTTP_400_BAD_REQUEST)
 
     def list(self, request):
+        """
+        List all trades that was verified by PokeTrader and was accepted by the user.
+        """
         historical_data = Trade.objects.all()
         data = []
         for item in historical_data:

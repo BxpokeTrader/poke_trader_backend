@@ -26,7 +26,7 @@ SECRET_KEY = '7!5k(ay88#*0oz-rop#rcn1%8@@-&+uck8hdu2%^d%bmba^%f#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'mongodb']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'mongodb', 'poketrader-backend.herokuapp.com']
 
 
 # Application definition
@@ -88,14 +88,13 @@ WSGI_APPLICATION = 'poke_trader.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
+        'NAME': 'db92hfeoaoquls',
+        'USER': 'ueqaszmbtznzwi',
+        'PASSWORD': '919a483538798bbd49b5757d180cb171a2cd0ddf7925ac749b0dddd2a8de2320',
+        'HOST': 'ec2-50-16-108-254.compute-1.amazonaws.com',
         'PORT': 5432,
     }
 }
-
 
 
 # Password validation

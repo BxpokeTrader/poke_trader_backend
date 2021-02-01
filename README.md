@@ -14,7 +14,7 @@ potential against to the others. So here you'll find the following features:
   
 **Link to the frontend application**: :rocket:   
   
-[https://bx-poketrader.herokuapp.com/][https://bx-poketrader.herokuapp.com/]  
+[https://bx-poketrader.herokuapp.com/](https://bx-poketrader.herokuapp.com/)
   
   ## Table of contents  
 * **[Requirements](#requirements)**  
